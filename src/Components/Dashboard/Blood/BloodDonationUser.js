@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const BloodDonationUser = () => {    
-    const [donationRequest, setDonationRequest] = useState(false);    
+const BloodDonationUser = () => {
+    const [donationRequest, setDonationRequest] = useState(false);
     const { register, handleSubmit, errors } = useForm();
     const currentform = useRef(null);
-    const onSubmitVerification = data => {        
+    const onSubmitVerification = data => {
         const mobileNumber = data.mobileNumber;
         fetch(`http://localhost:5000/donor/${mobileNumber}`, {
             method: 'GET',
@@ -15,18 +15,26 @@ const BloodDonationUser = () => {
             }
         })
             .then(res => res.json())
-            .then(data => {                             
-                const bloodDonateDate = data[0].date;
-                var date1 = new Date(bloodDonateDate);
-                var date2 = new Date();
-                var diffDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-                const x = Math.round(diffDays)                
-                if(x > 3){
+            .then(data => {
+                if (data.length > 0) {              
+                    data.map(data => {
+                        const bloodDonateDate = data.date;
+                        var date1 = new Date(bloodDonateDate);
+                        var date2 = new Date();
+                        var diffDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
+                        const x = Math.round(diffDays)
+                        if (x > 3) {
+                            setDonationRequest(true);
+                        }
+                        else (
+                            alert('You are not eligible to donate blood or less than three months for previous blood donation ')
+                        )
+                    })
+                }
+                else {
+                    console.log('okay')
                     setDonationRequest(true);
                 }
-                else(
-                    alert('You are not eligible to donate blood or less than three months for previous blood donation ')
-                )
             })
     }
 

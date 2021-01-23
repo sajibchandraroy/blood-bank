@@ -106,8 +106,8 @@ const Dashboard = () => {
                         {clickedItem === 'donation' && <BloodDonationUser />}
                         {clickedItem === 'requisition' && <BloodRequistUser />}
                         {clickedItem === 'appointment' && <DateForDonation isAdmin = {isAdmin}/>}
-                        {clickedItem === 'allDonor' && <AllDonorList />}
-                        {clickedItem === 'allRequisitor' && <AllBloodRequisitor/>}
+                        {clickedItem === 'allDonor' && <AllDonorList isAdmin = {isAdmin}/>}
+                        {clickedItem === 'allRequisitor' && <AllBloodRequisitor isAdmin = {isAdmin}/>}
                     </div>
                 </div>                
             </div>
