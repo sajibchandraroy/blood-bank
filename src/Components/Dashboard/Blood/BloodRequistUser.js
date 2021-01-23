@@ -6,7 +6,7 @@ const BloodRequistUser = () => {
     const currentform = useRef(null);
     const onSubmit = (data) => {
         console.log(data)
-        fetch('http://localhost:5000/request', {
+        fetch('https://gentle-dawn-31487.herokuapp.com/request', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

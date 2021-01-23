@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllBloodRequisitor = ({isAdmin}) => {
     const [bloodRequisition, setBloodRequisition] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/request', {
+        fetch('https://gentle-dawn-31487.herokuapp.com/request', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

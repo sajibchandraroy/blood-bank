@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllDonorList = ({ isAdmin}) => {
     const [donors, setDonors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/donor', {
+        fetch('https://gentle-dawn-31487.herokuapp.com/donor', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

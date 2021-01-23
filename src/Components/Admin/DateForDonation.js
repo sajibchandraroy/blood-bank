@@ -10,7 +10,7 @@ const DateForDonation = ({ isAdmin }) => {
         console.log(data.mobileNumber)
         const mobileNumber = data.mobileNumber;    
             
-            fetch(`http://localhost:5000/donor/${mobileNumber}`, {
+            fetch(`https://gentle-dawn-31487.herokuapp.com/donor/${mobileNumber}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const DateForDonation = ({ isAdmin }) => {
         const date = e.target.value
         const data = { date: date }
         console.log(data)
-        fetch(`http://localhost:5000/donor/${id}`, {
+        fetch(`https://gentle-dawn-31487.herokuapp.com/donor/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

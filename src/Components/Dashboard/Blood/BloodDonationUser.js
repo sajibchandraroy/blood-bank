@@ -7,7 +7,7 @@ const BloodDonationUser = () => {
     const currentform = useRef(null);
     const onSubmitVerification = data => {
         const mobileNumber = data.mobileNumber;
-        fetch(`http://localhost:5000/donor/${mobileNumber}`, {
+        fetch(`https://gentle-dawn-31487.herokuapp.com/donor/${mobileNumber}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const BloodDonationUser = () => {
 
     const onSubmit = (data) => {
         console.log(data)
-        fetch('http://localhost:5000/donor', {
+        fetch('https://gentle-dawn-31487.herokuapp.com/donor', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
