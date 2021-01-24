@@ -97,7 +97,7 @@ const Dashboard = () => {
 
                 <div className="col-md-9 pl-4 pt-5">
                     <div class="d-flex bd-highlight mb-3">
-                        <div class="mr-auto p-2 bd-highlight"><h1>Welcome to our Blood Bank</h1></div>
+                        <div class="mr-auto p-2 bd-highlight"><h1>Welcome to Our Blood Bank</h1></div>
                         <div class="p-2 bd-highlight"><img src={loggedInUser.photo} width="50px" height="auto" alt="" /></div>
                         <div class="p-2 bd-highlight">{loggedInUser.name}</div>
 

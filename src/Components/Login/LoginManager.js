@@ -19,7 +19,7 @@ export const handleGoogleSignIn = () => {
                 success: true,
                 email: email,
             }
-            console.log(signInUser);
+            // console.log(signInUser);
             setUserToken();
             return signInUser;
             // console.log(displayName, photoURL, email);
@@ -31,7 +31,7 @@ export const handleGoogleSignIn = () => {
 const setUserToken = () => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
         sessionStorage.setItem('token', idToken)
-        console.log(idToken)
+        // console.log(idToken)
         // Send token to your backend via HTTPS
         // ...
     }).catch(function (error) {

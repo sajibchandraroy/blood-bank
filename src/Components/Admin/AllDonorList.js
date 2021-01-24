@@ -19,6 +19,7 @@ const AllDonorList = ({ isAdmin}) => {
     }, []);
     return (
         <div>
+            <h3>List of all Blood Donor's</h3>
             <table className="table table-borderless" style={{ backgroundColor: "#F4FDFB" }}>
                 <thead>
                     <tr>

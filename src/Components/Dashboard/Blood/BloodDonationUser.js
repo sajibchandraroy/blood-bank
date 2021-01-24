@@ -143,11 +143,11 @@ const BloodDonationUser = () => {
                     </div>
                 </form>
                     :
-                    <form onSubmit={handleSubmit(onSubmitVerification)}>
-                        <input name="mobileNumber" ref={register({ required: true })} />
+                    <form onSubmit={handleSubmit(onSubmitVerification)} >
+                        <input className="form-control input-lg col-6 mb-2" name="mobileNumber" placeholder="Enter your mobile number for registration" ref={register({ required: true })} />
                         {/* errors will return when field validation fails  */}
                         {errors.mobileNumber && <span>This field is required</span>}
-                        <input type="submit" />
+                        <input type="submit" className="form-control input-lg col-2 btn-outline-primary" />
                     </form>
 
             }

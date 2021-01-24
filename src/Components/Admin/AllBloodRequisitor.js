@@ -19,6 +19,7 @@ const AllBloodRequisitor = ({isAdmin}) => {
     }, []);
     return (
         <div>
+            <h3>List of all Blood requisitions</h3>
             <table className="table table-borderless" style={{ backgroundColor: "#F4FDFB" }}>
                 <thead>
                     <tr>
