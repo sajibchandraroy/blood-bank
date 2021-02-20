@@ -13,14 +13,14 @@ import AllDonorList from '../../Admin/AllDonorList';
 import AllBloodRequisitor from '../../Admin/AllBloodRequisitor';
 
 
-const Dashboard = () => {
-    
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [clickedItem, setClickedItem] = useState('donation');    
-    const [isAdmin, setIsAdmin] = useState(false);
+const Dashboard = () => {    
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [clickedItem, setClickedItem] = useState(location.state);    
+    const [isAdmin, setIsAdmin] = useState(false);
+    console.log(location)
+    // const { from } = location.state || { from: { pathname: "/" } };
 
     useEffect(() => {
         admin.map(data => {
