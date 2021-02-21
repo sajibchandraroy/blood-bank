@@ -38,27 +38,18 @@ const Navbar = () => {
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        {/* <a class="nav-link" href="/#contactUs">Contact Us</a> */}
-
                         <div>
                             <button
                                 onClick={openModal}
-                                // className="btn btn-outline-info"
                                 className="btn btn-light"
                             >
                                 Contact Us
-                </button>
+                            </button>
                             <MessageModal
                                 modalIsOpen={modalIsOpen}
                                 closeModal={closeModal}
                             />
                         </div>
-
-
-
-
-
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#aboutUs">About</a>

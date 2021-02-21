@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
 import "./MessageModal.css";
 
 const customStyles = {
@@ -18,30 +19,18 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 const MessageModal = ({ modalIsOpen, closeModal }) => {
-
-  function sendEmail(e) {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "564315",
-        "template_momv75k",
-        e.target,
-        "user_PNtqALGQ9RyfIStQWc7vX"
-      )
-      .then(
-        (result) => {
-          alert("Mail send successfully");
-          // e.target.value = " ";
-          closeModal();
-
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+  const { register,handleSubmit, errors } = useForm();
+  
+  const onSubmit = data => {
+    console.log(data)
+    emailjs.send('564315','template_momv75k', data, 'user_PNtqALGQ9RyfIStQWc7vX')
+    .then((response) => {
+       console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+       console.log('FAILED...', err);
+    });    
   }
+ 
   return (
     <div>
       <Modal
@@ -51,25 +40,8 @@ const MessageModal = ({ modalIsOpen, closeModal }) => {
         contentLabel="Example Modal"
       >
 
-{/* <form className="contact-form" onSubmit={sendEmail}>
-      <input type="hidden" name="contact_number" />
-      <label>Name</label>
-      <input type="text" name="name" />
-      <label>Email</label>
-      <input type="email" name="email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form> */}
-
-
-
-
-
-
-
         <form 
-        onSubmit={sendEmail}
+        onSubmit={handleSubmit(onSubmit)}
         >
           <div className="form-group">
             <input
@@ -79,11 +51,12 @@ const MessageModal = ({ modalIsOpen, closeModal }) => {
               placeholder="Enter Your Email"
               className="form-control"
               id="email"
+              
             />
           </div>
           <div className="form-group">
-            <input
-              required
+            <input              
+              ref={register({ required: true })}
               type="text"
               name="name"
               placeholder="Enter Your Name"
@@ -93,7 +66,7 @@ const MessageModal = ({ modalIsOpen, closeModal }) => {
           </div>
           <div className="form-group">
             <input
-              required
+              ref={register({ required: true })}
               type="text"
               name="subject"
               placeholder="Enter Your Subject"
@@ -103,7 +76,7 @@ const MessageModal = ({ modalIsOpen, closeModal }) => {
           </div>
           <div className="form-group">
             <textarea
-              required
+              ref={register({ required: true })}
               className="form-control"
               name="message"
               id="textarea"
