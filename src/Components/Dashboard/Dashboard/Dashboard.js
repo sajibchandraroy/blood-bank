@@ -13,11 +13,11 @@ import AllDonorList from '../../Admin/AllDonorList';
 import AllBloodRequisitor from '../../Admin/AllBloodRequisitor';
 
 
-const Dashboard = () => {    
+const Dashboard = () => {
     const history = useHistory();
     const location = useLocation();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [clickedItem, setClickedItem] = useState(location.state);    
+    const [clickedItem, setClickedItem] = useState(location.state);
     const [isAdmin, setIsAdmin] = useState(false);
     console.log(location)
     // const { from } = location.state || { from: { pathname: "/" } };
@@ -42,55 +42,60 @@ const Dashboard = () => {
         <section>
             <div className="row backgroundDashboard">
                 <div className="col-md-2">
-                    <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
-                        <ul className="list-unstyled">
-                            <li>
-                                <Link to="/dashboard" className="text-white">
-                                    <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/" className="text-white">
-                                    <FontAwesomeIcon icon={faHome} /> <span>Home</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="text-white">
-                                    <FontAwesomeIcon icon={faHome} /> <span onClick={() => setClickedItem('donation')}>Blood Donate</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="text-white">
-                                    <FontAwesomeIcon icon={faHome} /> <span onClick={() => setClickedItem('requisition')}>Blood request</span>
-                                </Link>
-                            </li>
+                    <div className="sidebar navbar-light d-flex flex-column justify-content-center py-5 px-4" style={{ height: "auto", width: "auto" }}>
+                        {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> */}
+                        <div >
+                            <ul className="list-unstyled">
+                                <li>
+                                    <Link to="/dashboard" className="text-white">
+                                        <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className="text-white">
+                                        <FontAwesomeIcon icon={faHome} /> <span>Home</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white">
+                                        <FontAwesomeIcon icon={faHome} /> <span onClick={() => setClickedItem('donation')}>Blood Donate</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white">
+                                        <FontAwesomeIcon icon={faHome} /> <span onClick={() => setClickedItem('requisition')}>Blood request</span>
+                                    </Link>
+                                </li>
 
-                            {isAdmin && 
-                                <div>
-                                    <li>
-                                        <Link className="text-white">
-                                            <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('appointment')}>Donation / Requisting Schduling</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="text-white">
-                                            <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('allDonor')}>All Donor list</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="text-white">
-                                            <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('allRequisitor')}>All Blood Requisitor list</span>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="text-white" >
-                                            <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
-                                        </Link>
-                                    </li>
-                                </div>}
-                        </ul>
-                        <div>
-                            <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span onClick={signOut}>Logout</span></Link>
+                                {isAdmin &&
+                                    <div>
+                                        <li>
+                                            <Link className="text-white">
+                                                <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('appointment')}>Donation / Requisting Schduling</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link className="text-white">
+                                                <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('allDonor')}>All Donor list</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link className="text-white">
+                                                <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('allRequisitor')}>All Blood Requisitor list</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link className="text-white" >
+                                                <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
+                                            </Link>
+                                        </li>
+                                    </div>}
+                            </ul>
+                            <div>
+                                <Link to="/" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span onClick={signOut}>Logout</span></Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,11 +110,11 @@ const Dashboard = () => {
                     <div>
                         {clickedItem === 'donation' && <BloodDonationUser />}
                         {clickedItem === 'requisition' && <BloodRequistUser />}
-                        {clickedItem === 'appointment' && <DateForDonation isAdmin = {isAdmin}/>}
-                        {clickedItem === 'allDonor' && <AllDonorList isAdmin = {isAdmin}/>}
-                        {clickedItem === 'allRequisitor' && <AllBloodRequisitor isAdmin = {isAdmin}/>}
+                        {clickedItem === 'appointment' && <DateForDonation isAdmin={isAdmin} />}
+                        {clickedItem === 'allDonor' && <AllDonorList isAdmin={isAdmin} />}
+                        {clickedItem === 'allRequisitor' && <AllBloodRequisitor isAdmin={isAdmin} />}
                     </div>
-                </div>                
+                </div>
             </div>
         </section>
     );
