@@ -11,6 +11,7 @@ import BloodRequistUser from '../Blood/BloodRequistUser';
 import DateForDonation from '../../Admin/DateForDonation'
 import AllDonorList from '../../Admin/AllDonorList';
 import AllBloodRequisitor from '../../Admin/AllBloodRequisitor';
+import MoneyDonation from '../money/MoneyDonation';
 
 
 const Dashboard = () => {
@@ -108,8 +109,9 @@ const Dashboard = () => {
 
                     </div>
                     <div>
-                        {clickedItem === 'donation' && <BloodDonationUser />}
-                        {clickedItem === 'requisition' && <BloodRequistUser />}
+                        {clickedItem === 'bloodDonation' && <BloodDonationUser />}
+                        {clickedItem === 'bloodRequisition' && <BloodRequistUser />}
+                        {clickedItem === 'moneyDonation' && <MoneyDonation />}
                         {clickedItem === 'appointment' && <DateForDonation isAdmin={isAdmin} />}
                         {clickedItem === 'allDonor' && <AllDonorList isAdmin={isAdmin} />}
                         {clickedItem === 'allRequisitor' && <AllBloodRequisitor isAdmin={isAdmin} />}

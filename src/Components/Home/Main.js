@@ -29,13 +29,13 @@ const Main = () => {
             <div className="d-flex justify-content-center">
                 <Link to={{
                     pathname: "/dashboard",
-                    state: 'donation'
-                }}><button class="btn btn-outline-secondary mx-2">Blood Donation</button></Link>
+                    state: 'bloodDonation'
+                }}><button class="btn btn-outline-danger mx-2">Blood Donation</button></Link>
 
                 <Link to={{
                     pathname: "/dashboard",
-                    state: 'requisition'
-                }}><button class="btn btn-outline-secondary">Blood Requisition</button></Link>
+                    state: 'bloodrequisition'
+                }}><button class="btn btn-outline-danger ">Blood Requisition</button></Link>
             </div>
             <br/><br/>
 
