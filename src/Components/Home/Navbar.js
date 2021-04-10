@@ -57,12 +57,12 @@ const Navbar = () => {
                 </ul>
                 {loggedInUser.isSignedIn ? <div><img className="rounded-circle mx-1" src={loggedInUser.photo} width="40px" height="40px" alt="" /><button class="btn btn-outline-success my-2 my-sm-0" onClick={signOut} >Log Out</button></div> : <Link to={{
                     pathname: "/dashboard",
-                    state: 'bloodDonation'
+                    state: 'donation'
                 }}><button class="btn btn-outline-success my-2 my-sm-0">Login</button></Link>}
-                <Link to={{
+                {/* <Link to={{
                     pathname: "/dashboard",
                     state: 'moneyDonation'
-                }}><button class="btn btn-outline-dark text-warning mx-1 my-sm-0">Donation</button></Link>
+                }}><button class="btn btn-outline-dark text-warning mx-1 my-sm-0">Donation</button></Link> */}
             </div>
         </nav>
     );

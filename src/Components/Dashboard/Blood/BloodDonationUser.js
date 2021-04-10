@@ -18,22 +18,22 @@ const BloodDonationUser = () => {
             .then(data => {
                 if (data.length > 0) {              
                     data.map(data => {
+                        
                         const bloodDonateDate = data.date;
                         var date1 = new Date(bloodDonateDate);
                         var date2 = new Date();
                         var diffDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-                        const x = Math.round(diffDays)
-                        if (x > 3) {
-                            setDonationRequest(true);
+                        const x = Math.round(diffDays)                        
+                        if (x > 90) {
+                            return setDonationRequest(true);
                         }
                         else (
                             alert('You are not eligible to donate blood or less than three months for previous blood donation ')
                         )
                     })
                 }
-                else {
-                    console.log('okay')
-                    setDonationRequest(true);
+                else {                    
+                    return setDonationRequest(true);
                 }
             })
     }

@@ -14,6 +14,7 @@
     "emailjs-com": "^2.6.4",
     "firebase": "^8.2.3",
     "firebase-tools": "^9.4.0",
+    "http2": "^3.3.7",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -23,6 +24,8 @@
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "sslcommerz": "^1.0.4",
+    "sslcommerz-nodejs": "^1.0.8",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

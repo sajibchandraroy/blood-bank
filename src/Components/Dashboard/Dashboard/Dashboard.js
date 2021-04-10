@@ -4,33 +4,29 @@ import { faCalendar, faGripHorizontal, faHome, faSignOutAlt, faUserPlus } from '
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Dashboard.css';
 import { UserContext } from '../../../App';
-import { handleSignOut } from '../../Login/LoginManager';
 import { admin } from '../../fakeData/AdminData';
 import BloodDonationUser from '../Blood/BloodDonationUser';
 import BloodRequistUser from '../Blood/BloodRequistUser';
 import DateForDonation from '../../Admin/DateForDonation'
 import AllDonorList from '../../Admin/AllDonorList';
 import AllBloodRequisitor from '../../Admin/AllBloodRequisitor';
-import MoneyDonation from '../money/MoneyDonation';
-
 
 const Dashboard = () => {
     const history = useHistory();
     const location = useLocation();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [clickedItem, setClickedItem] = useState(location.state);
+    const [clickedItem, setClickedItem] = useState(location.state);    
     const [isAdmin, setIsAdmin] = useState(false);
     console.log(location)
-    // const { from } = location.state || { from: { pathname: "/" } };
-
+    
     useEffect(() => {
         admin.map(data => {
             if (data.email == loggedInUser.email) {
                 setIsAdmin(true);
             }
         })
-
     })
+
     const signOut = () => {
         setLoggedInUser({});
         localStorage.clear();
@@ -87,11 +83,12 @@ const Dashboard = () => {
                                                 <FontAwesomeIcon icon={faCalendar} /> <span onClick={() => setClickedItem('allRequisitor')}>All Blood Requisitor list</span>
                                             </Link>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                             <Link className="text-white" >
                                                 <FontAwesomeIcon icon={faUserPlus} /> <span>Add Admin</span>
                                             </Link>
-                                        </li>
+                                        </li> */}
+
                                     </div>}
                             </ul>
                             <div>
@@ -109,9 +106,8 @@ const Dashboard = () => {
 
                     </div>
                     <div>
-                        {clickedItem === 'bloodDonation' && <BloodDonationUser />}
-                        {clickedItem === 'bloodRequisition' && <BloodRequistUser />}
-                        {clickedItem === 'moneyDonation' && <MoneyDonation />}
+                        {clickedItem === 'donation' && <BloodDonationUser />}
+                        {clickedItem === 'requisition' && <BloodRequistUser />}                        
                         {clickedItem === 'appointment' && <DateForDonation isAdmin={isAdmin} />}
                         {clickedItem === 'allDonor' && <AllDonorList isAdmin={isAdmin} />}
                         {clickedItem === 'allRequisitor' && <AllBloodRequisitor isAdmin={isAdmin} />}

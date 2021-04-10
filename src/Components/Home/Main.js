@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Link } from 'react-router-dom';
 import image1 from '../Image/HomeBackground/1.jpg';
@@ -29,12 +28,12 @@ const Main = () => {
             <div className="d-flex justify-content-center">
                 <Link to={{
                     pathname: "/dashboard",
-                    state: 'bloodDonation'
+                    state: 'donation'
                 }}><button class="btn btn-outline-danger mx-2">Blood Donation</button></Link>
 
                 <Link to={{
                     pathname: "/dashboard",
-                    state: 'bloodrequisition'
+                    state: 'requisition'
                 }}><button class="btn btn-outline-danger ">Blood Requisition</button></Link>
             </div>
             <br/><br/>
